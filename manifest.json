@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+  "name": "Filter Button",
+  "version": "1.2",
+  "description": "adds a Filter Button to the message toolbar",
+  "author": "Christoph Kaser, IconParc GmbH with modifications for TB 68.0 by Grzegorz Kubiak",
+  "legacy": true,
+  "applications": {
+    "gecko": {
+      "id": "filter_button@iconparc.de",
+	  "strict_min_version": "60.0"
+    }
+  }
+}
