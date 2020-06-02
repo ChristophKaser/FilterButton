@@ -1,1 +1,1 @@
-&"c:\Program Files\7-Zip\7z" a ..\filter_button.xpi *
+&"c:\Program Files\7-Zip\7z" a ..\filter_button.xpi * "-x!.svn" "-x!.git"
