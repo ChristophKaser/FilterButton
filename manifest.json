@@ -1,14 +1,55 @@
 {
-  "manifest_version": 2,
-  "name": "Filter Button",
-  "version": "1.2",
-  "description": "adds a Filter Button to the message toolbar",
-  "author": "Christoph Kaser, IconParc GmbH with modifications for TB 68.0 by Grzegorz Kubiak",
-  "legacy": true,
-  "applications": {
-    "gecko": {
-      "id": "filter_button@iconparc.de",
-	  "strict_min_version": "60.0"
+    "manifest_version": 2,
+    "name": "__MSG_extensionName__",
+    "description": "__MSG_extensionDescription__",
+    "version": "2.0",
+    "author": "Christoph Kaser, ICONPARC GmbH",
+    "applications": {
+        "gecko": {
+            "id": "filter_button@iconparc.de",
+            "strict_min_version": "78.0"
+        }
+    },
+    "background": {
+        "scripts": [
+            "scripts/background.js"
+        ]
+    },
+    "message_display_action": {
+        "default_title": "Filter Button",
+        "default_icon": {
+            "64": "images/button_64.png",
+            "32": "images/button_32.png",
+            "16": "images/button_16.png"
+        }
+    },
+    "icons": {
+        "64": "images/button_64.png",
+        "32": "images/button_32.png",
+        "16": "images/button_16.png"
+    },
+    "permissions": [
+        "messagesRead",
+        "accountsRead"
+    ],
+    "default_locale": "en",
+    "experiment_apis": {
+        "ex_cachingfix": {
+          "schema": "experiments/cachingfix/api.json",
+          "parent": {
+            "scopes": ["addon_parent"],
+            "paths": [["ex_cachingfix"]],
+            "script": "experiments/cachingfix/parent.js",
+            "events": ["startup"]
+          }
+        },
+        "filters": {
+            "schema": "experiments/filters/schema.json",
+            "parent": {
+              "scopes": ["addon_parent"],
+              "paths": [["filters"]],
+              "script": "experiments/filters/implementation.js"
+            }
+      }
     }
-  }
 }

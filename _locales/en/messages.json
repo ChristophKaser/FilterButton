@@ -1,0 +1,28 @@
+{
+    "extensionName": {
+        "message": "Filter Button",
+        "description": "Name of the extension."
+    },
+    "extensionDescription": {
+        "message": "Create a message filter button",
+        "description": "Description of the extension."
+    },
+    "noMatchingFiltersTitle": {
+        "message": "No matching filters - click to create one.",
+        "description": "Tooltip of the button when no filter matches."
+    },
+    "filterButtonLabel": {
+        "message": "Filter…",
+        "description": "Label of the button when multiple filters match."
+    },
+    "nrMatchingFiltersTitle": {
+        "message": "$AMOUNT$ matching filters",
+        "description": "Tooltip of the button when multiple filters match",
+        "placeholders": {
+            "amount": {
+                "content": "$1",
+                "example": "2"
+            }
+        }
+    }
+}

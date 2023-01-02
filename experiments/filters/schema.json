@@ -1,0 +1,131 @@
+[
+    {
+        "namespace": "filters",
+        "types": [
+            {
+                "id": "FilterSearchTerm",
+                "type": "object",
+                "properties": {
+                    "attrib": {
+                        "type": "integer"
+                    },
+                    "op": {
+                        "type": "integer"
+                    },
+                    "value": {
+                        "type": "object"
+                    },
+                    "booleanAnd": {
+                        "type": "boolean"
+                    },
+                    "arbitraryHeader": {
+                        "type": "string"
+                    }
+                }
+            },
+            {
+                "id": "FilterAction",
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "integer"
+                    }
+                }
+            },
+            {
+                "id": "Filter",
+                "type": "object",
+                "properties": {
+                    "filterId": {
+                        "type": "integer"
+                    },
+                    "filterType": {
+                        "type": "integer"
+                    },
+                    "filterName": {
+                        "type": "string"
+                    },
+                    "filterDesc": {
+                        "type": "string"
+                    },
+                    "searchTerms": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "FilterSearchTerm"
+                        }
+                    },
+                    "actions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "FilterAction"
+                        }
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "temporary": {
+                        "type": "boolean"
+                    }
+                }
+            }
+        ],
+        "functions": [
+            {
+                "name": "getFilters",
+                "type": "function",
+                "async": true,
+                "parameters": [
+                    {
+                        "name": "folder",
+                        "$ref": "folders.MailFolder"
+                    }
+                ]
+            },
+            {
+                "name": "filterMatches",
+                "type": "function",
+                "async": true,
+                "parameters": [
+                    {
+                        "name": "filterId",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "messageId",
+                        "type": "integer"
+                    }
+                ]
+            },
+            {
+                "name": "executeFilterActions",
+                "type": "function",
+                "async": true,
+                "parameters": [
+                    {
+                        "name": "filterId",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "messageId",
+                        "type": "integer"
+                    }
+                ]
+            },
+            {
+                "name": "showNewFilterDialog",
+                "type": "function",
+                "async": true,
+                "parameters": [
+                    {
+                        "name": "tabId",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "messageId",
+                        "type": "integer"
+                    }
+                ]
+            }
+        ]
+    }
+]
