@@ -124,6 +124,9 @@ var filters = class extends ExtensionCommon.ExtensionAPI {
 
         async filterMatches(filterId, messageId) {
           let filter = filterMap[filterId];
+          if (!filter) {
+            throw new Error('Invalid or stale filterId ' + filterId);
+          }
           let msg = context.extension.messageManager.get(messageId);
 
           var session = Components.classes["@mozilla.org/messenger/searchSession;1"].createInstance(Ci.nsIMsgSearchSession);
