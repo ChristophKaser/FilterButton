@@ -11,7 +11,7 @@ Perfect for:
     Deleting spam messages on click or moving them to a specific folder
     ...
 
-See https://addons.thunderbird.net/de/thunderbird/addon/filter-button/
+See https://addons.thunderbird.net/thunderbird/addon/filter-button/
 
 PRs welcome!
 
