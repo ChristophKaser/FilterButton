@@ -1,4 +1,4 @@
-/* globals ExtensionCommon, Ci, Components */
+/* globals Services, ExtensionCommon, Ci, Components */
 
 var filters = class extends ExtensionCommon.ExtensionAPI {
   getAPI(context) {
@@ -215,4 +215,11 @@ var filters = class extends ExtensionCommon.ExtensionAPI {
       }
     };
   }
+  onShutdown(isAppShutdown) {
+    if (isAppShutdown) {
+      return; // the application gets unloaded anyway
+    }
+    // Clear caches that could prevent upgrades from working properly
+    Services.obs.notifyObservers(null, "startupcache-invalidate", null);
+  }  
 };
