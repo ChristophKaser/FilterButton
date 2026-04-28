@@ -2,13 +2,13 @@
     "manifest_version": 2,
     "name": "__MSG_extensionName__",
     "description": "__MSG_extensionDescription__",
-    "version": "2.0.4",
+    "version": "2.0.6",
     "author": "Christoph Kaser, ICONPARC GmbH",
     "applications": {
         "gecko": {
             "id": "filter_button@iconparc.de",
-            "strict_min_version": "115.0",
-            "strict_max_version": "128.*"
+            "strict_min_version": "150.0",
+            "strict_max_version": "152.0"
         }
     },
     "background": {
