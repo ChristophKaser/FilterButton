@@ -163,7 +163,7 @@ var filters = class extends ExtensionCommon.ExtensionAPI {
           //temporarily switch filter lists
           folder.setFilterList(tempFilterList);
           try {
-            filterService.applyFilters(Components.interfaces.nsMsgFilterType.All, [msg], folder, msgWindow);
+            filterService.applyFilters(Components.interfaces.nsMsgFilterType.All, [msg], [], folder, msgWindow);
           } finally {
             folder.setFilterList(curFilterList);
           }
