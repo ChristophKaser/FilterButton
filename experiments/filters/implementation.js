@@ -34,7 +34,13 @@ var filters = class extends ExtensionCommon.ExtensionAPI {
           retval.junkPercent = val.junkPercent;
           break;
         default:
-          retval.str = val.str;
+          // For some reason "val.str" throws 0x80070057 (NS_ERROR_ILLEGAL_VALUE), ignore such cases so as not to break the Filter button completely:
+          try {
+            retval.str = val.str;
+          }
+          catch (error) {
+            retval.str = "Filter button error interpreting filter: " + error.str;
+          }
           break;
       }
       return retval;
@@ -125,7 +131,8 @@ var filters = class extends ExtensionCommon.ExtensionAPI {
         async filterMatches(filterId, messageId) {
           let filter = filterMap[filterId];
           if (!filter) {
-            throw new Error('Invalid or stale filterId ' + filterId);
+            return false;
+            // This should only be used when debugging the add-on: throw new Error('Invalid or stale filterId ' + filterId);
           }
           let msg = context.extension.messageManager.get(messageId);
 
